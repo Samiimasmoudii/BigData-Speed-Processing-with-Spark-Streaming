@@ -8,10 +8,10 @@ import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.streaming.api.java.JavaDStream;
 
-import tn.enit.tp4.entity.AverageData;
-import tn.enit.tp4.entity.Humidity;
-import tn.enit.tp4.entity.SensorData;
-import tn.enit.tp4.entity.Temperature;
+import org.example.entity.AverageData;
+import org.example.entity.Humidity;
+import org.example.entity.SensorData;
+import org.example.entity.Temperature;
 import com.datastax.spark.connector.japi.CassandraJavaUtil;
 
 import static com.datastax.spark.connector.japi.CassandraStreamingJavaUtil.javaFunctions;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
-class ProcessorUtils {
+public class ProcessorUtils {
 
     public static SparkConf getSparkConf(Properties prop) {
         var sparkConf = new SparkConf().setAppName(prop.getProperty("com.iot.app.spark.app.name"))
