@@ -1,30 +1,25 @@
 package org.example;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.kafka.common.serialization.Serializer;
 
-import java.util.Map;
+import kafka.serializer.Encoder;
+import kafka.utils.VerifiableProperties;
 
-public class SensorDataEncoder implements Serializer<SensorData> {
+public class SensorDataEncoder implements Encoder<SensorData> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private static ObjectMapper objectMapper = new ObjectMapper();
+    public SensorDataEncoder(VerifiableProperties verifiableProperties) {
 
-    @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
-        // No special configuration required
     }
-
-    @Override
-    public byte[] serialize(String topic, SensorData data) {
+    public byte[] toBytes(SensorData event) {
         try {
-            return objectMapper.writeValueAsBytes(data);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to serialize SensorData", e);
+            String msg = objectMapper.writeValueAsString(event);
+            System.out.println(msg);
+            return msg.getBytes();
+        } catch (JsonProcessingException e) {
+            System.out.println("Error in Serialization" +e.getMessage());
         }
-    }
-
-    @Override
-    public void close() {
-        // No resources to close
+        return null;
     }
 }
