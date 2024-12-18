@@ -6,4 +6,4 @@ CREATE TABLE sensordatakeyspace.temperature (id text , timeStamp timestamp, valu
 
 CREATE TABLE sensordatakeyspace.humidity (id text , timeStamp timestamp, value double, PRIMARY KEY (id));
 
-CREATE TABLE sensordatakeyspace.averagedata (id text , temperature double, humidity double, PRIMARY KEY (id));
+CREATE TABLE sensordatakeyspace.averagedata (id text , temperature double, humidity double, PRIMARY KEY (id)); 
