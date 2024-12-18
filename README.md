@@ -29,23 +29,52 @@ cd
 docker-compose up -d
 ```
 
-### 3. Run the Producer
+### 3. Run the Producers 
 ```bash
 mvn clean package
 //choose a name for the jar you're going to generate
-java -cp target/spark-streaming-project-1.0-SNAPSHOT.jar com.example.kafka.producer.KafkaProducerApp
+```
+```bash 
+//run these commands
+docker exec namenode hdfs dfs -rm -r /lambda-arch
+docker exec namenode hdfs dfs -mkdir -p /lambda-arch
+docker exec namenode hdfs dfs -mkdir -p /lambda-arch/checkpoint
+docker exec namenode hdfs dfs -chmod -R 777 /lambda-arch
+docker exec namenode hdfs dfs -chown -R 777 /lambda-arch
+docker exec namenode hdfs dfs -chmod -R 777 /lambda-arch/checkpoint
+docker exec namenode hdfs dfs -chown -R 777 /lambda-arch/checkpoint
 ```
 
-### 4. Deploy Real-Time Processing
-- **Spark Streaming**: Run Spark jobs for real-time analytics and data transformation.
 
-### 5. Batch Processing
-- Implement the pipeline with HDFS, Spark, Hive, and Sqoop for batch data processing and analysis.
+Create Schemas in Cassandra 
+```bash 
+docker exec cassandra-iot cqlsh --username cassandra --password cassandra -f /schema.cql
+```
+Copy and execeute the kafka producer 
 
-### 6. Monitor Data Streams
-- Use Kafka tools like `kafka-console-consumer` or dashboards for stream visualization.
-- Query Cassandra for real-time and historical insights.
+```bash
+docker cp kafka-producer-1.0.0.jar kafka-iot:/
+docker exec -it kafka-iot java -jar kafka-producer-1.0.0.jar
+```
 
+Copy And execute the spark producer
+```bash
+docker cp spark-processor-1.0.0.jar spark-master:/
+docker exec spark-master /spark/bin/spark-submit --class org.example.processor.StreamProcessor /spark-processor-1.0.0.jar
+```
+
+
+
+
+
+
+
+### 4. Monitor Data Streams
+```bash
+docker exec -it cassandra-iot cqlsh -u cassandra -p cassandra
+DESCRIBE KEYSPACES;
+SELECT * FROM sensordatakeyspace.temperature;
+SELECT * FROM sensordatakeyspace.humidity;
 ---
 
 ## Technologies Used
