@@ -93,7 +93,7 @@ SELECT * FROM sensordatakeyspace.humidity;
 
 **Sami MASMOUDI**  
 Software Engineering Student  
-[LinkedIn](https://linkedin.com/in/sami-masmoudi) | [GitHub](https://github.com/samiimasmoudii)
+[LinkedIn](https://linkedin.com/in/sami-masmoudi12) | [GitHub](https://github.com/samiimasmoudii)
 
 ---
 
