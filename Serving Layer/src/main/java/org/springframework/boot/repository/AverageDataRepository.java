@@ -1,10 +1,10 @@
 
-
+package org.springframework.boot.repository;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.bigdata.dashboard.entity.AverageData;
+import org.springframework.boot.entity.AverageData;
 
 
 @Repository

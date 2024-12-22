@@ -1,10 +1,11 @@
 
+package org.springframework.boot.repository;
 
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.bigdata.dashboard.entity.Temperature;
+import org.springframework.boot.entity.Temperature;
 
 import java.util.Date;
 import java.util.UUID;

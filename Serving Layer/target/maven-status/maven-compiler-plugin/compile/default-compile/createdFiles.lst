@@ -1,0 +1,11 @@
+org\springframework\boot\utils\WebSocketConfig.class
+org\springframework\boot\repository\HumidityRepository.class
+org\springframework\boot\utils\AverageService.class
+org\springframework\boot\entity\Humidity.class
+org\springframework\boot\utils\Response.class
+org\springframework\boot\entity\Temperature.class
+org\springframework\boot\repository\AverageDataRepository.class
+org\springframework\boot\SensorDataDashboard.class
+org\springframework\boot\entity\AverageData.class
+org\springframework\boot\repository\TemperatureRepository.class
+org\springframework\boot\utils\DataService.class

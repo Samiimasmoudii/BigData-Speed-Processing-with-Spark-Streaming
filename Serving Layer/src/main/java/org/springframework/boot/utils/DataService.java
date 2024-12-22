@@ -1,9 +1,12 @@
 
+package org.springframework.boot.utils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.repository.HumidityRepository;
+import org.springframework.boot.repository.TemperatureRepository;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

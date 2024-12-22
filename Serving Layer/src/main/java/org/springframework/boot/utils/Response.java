@@ -1,5 +1,5 @@
 
-
+package org.springframework.boot.utils;
 import java.io.Serializable;
 import java.util.List;
 

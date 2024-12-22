@@ -1,0 +1,9 @@
+org\example\entity\SensorData.class
+org\example\entity\Humidity.class
+org\example\Main.class
+org\example\util\SensorDataDeserializer.class
+org\example\entity\AverageData.class
+org\example\entity\Temperature.class
+org\example\processor\ProcessorUtils.class
+org\example\processor\StreamProcessor.class
+org\example\util\PropertyFileReader.class
