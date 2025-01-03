@@ -14,6 +14,6 @@ dependency-reduced-pom.xml
 
 # Other files to ignore
 *.jar
-data/datanode/current/*
-data/namenode/current/*
-data/namenode/current/edits_inprogress_0000000000000000004
+/data/*
+
+.fake

@@ -127,16 +127,14 @@ services:
       - 50010:50010
 
   dashboard:
-    image: openjdk:11-jre-slim
+    image: openjdk:8-jre-slim
     container_name: dashboard
     hostname: dashboard
     ports:
       - "3000:3000"
-    environment:
-      - SPRING_DATA_CASSANDRA_USERNAME=cassandra
-      - SPRING_DATA_CASSANDRA_PASSWORD=cassandra
+  
     volumes:
-      - ./target/dashboard-1.0.0.jar:/app.jar
+      - ./Serving-Layer/target/dashboard-1.0.0.jar:/app.jar
     command: ["java", "-jar", "/app.jar"]
     networks:
       - netw
